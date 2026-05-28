@@ -1,6 +1,7 @@
 body{
     margin: 0px;
     width: 100%;
+    background-color: rgb(26, 25, 25);
    
 }
 
@@ -12,16 +13,20 @@ body{
     width: 100vw;
     height: 100vh;
     border: solid red 2px;
-    background-image: url(./src/loadscreen.png);
-    background-color: rgb(15, 14, 14);
-    transition-duration: 4s;
+    background-image: url(./src/loadingscreens/loadingScreen1.png);
+    background-repeat: no-repeat;
+    background-color: rgb(40, 39, 39);
+    transition-duration: 1s;
     
 }
 
 .slideUpAnimation{ 
     position: absolute;
     transform: translateY(-100%);
- 
+}
+
+.newLoadingScreenAnimation{
+
 }
 
 #mainPage{
@@ -39,6 +44,7 @@ body{
     align-items: center;
     padding-left: 30px;
     padding-right: 30px;
+    margin-bottom: 40px;
 
 }
 
@@ -51,6 +57,30 @@ body{
     /* margin-right: 5%; */
 }
 
-h1{
+.titleText{
     font-family: MajestyBold, Times New Roman, serif;
+    color: white;
+    text-align: center;
+    font-size: 100px;
+    margin: 0px;
+    margin-bottom: 30px;
+}
+
+
+.characterGrid{
+    border: solid blue 2px;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    gap: 10px;
+}
+
+
+.card{
+  
+
+    border: solid green 2px;
+    grid-column: span 1;
 }
