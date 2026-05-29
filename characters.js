@@ -15,7 +15,7 @@ export const characters = [
 
   {
     name: "Cassie Cage",
-    img: "",
+    img: "./src/characterCardImgs/cassie.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -106,7 +106,7 @@ export const characters = [
 
   {
     name: "Jax",
-    img: "",
+    img: "./src/characterCardImgs/jax.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -119,7 +119,7 @@ export const characters = [
 
   {
     name: "Johnny Cage",
-    img: "",
+    img: "./src/characterCardImgs/jhonny.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -158,7 +158,7 @@ export const characters = [
 
   {
     name: "Kitana",
-    img: "",
+    img: "./src/characterCardImgs/kitana.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -197,9 +197,9 @@ export const characters = [
 
   {
     name: "Kung Lao",
-    img: "",
+    img: "./src/characterCardImgs/kung.png",
     bio: "",
-    quote: "",
+    quote: "./src/characterCardImgs/kung.png",
     dlc: { fromDlc: false, pack: null },
     variations: [
       { variationName: "Buzz Saw", variationDescription: "" },
@@ -210,7 +210,7 @@ export const characters = [
 
   {
     name: "Liu Kang",
-    img: "",
+    img: "./src/characterCardImgs/lui.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -223,7 +223,7 @@ export const characters = [
 
   {
     name: "Mileena",
-    img: "",
+    img: "./src/characterCardImgs/mileena.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -262,7 +262,7 @@ export const characters = [
 
   {
     name: "Raiden",
-    img: "",
+    img: "./src/characterCardImgs/raiden.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -288,7 +288,7 @@ export const characters = [
 
   {
     name: "Scorpion",
-    img: "",
+    img: "./src/characterCardImgs/scorpian.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -301,7 +301,7 @@ export const characters = [
 
   {
     name: "Shinnok",
-    img: "",
+    img: "./src/characterCardImgs/shinock.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -314,7 +314,7 @@ export const characters = [
 
   {
     name: "Sonya Blade",
-    img: "",
+    img: "./src/characterCardImgs/sonya.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
@@ -327,7 +327,7 @@ export const characters = [
 
   {
     name: "Sub-Zero",
-    img: "",
+    img: "./src/characterCardImgs/subzero.png",
     bio: "",
     quote: "",
     dlc: { fromDlc: false, pack: null },
