@@ -13,8 +13,9 @@ body{
     width: 100vw;
     height: 100vh;
     border: solid red 2px;
-    background-image: url(./src/loadingscreens/loadingScreen1.png);
+    background-image: url(./src/loadingscreens/loadingScreen1.jpeg);
     background-repeat: no-repeat;
+    background-size: 100% 100%;
     background-color: rgb(40, 39, 39);
     transition-duration: 1s;
     
@@ -25,9 +26,7 @@ body{
     transform: translateY(-100%);
 }
 
-.newLoadingScreenAnimation{
 
-}
 
 #mainPage{
     display: none;
@@ -48,6 +47,7 @@ body{
 
 }
 
+
 #header img{
     height: 80%;
 }
@@ -57,6 +57,7 @@ body{
     /* margin-right: 5%; */
 }
 
+/* "choose your fighter text" */
 .titleText{
     font-family: MajestyBold, Times New Roman, serif;
     color: white;
@@ -67,20 +68,63 @@ body{
 }
 
 
-.characterGrid{
+/* Div that will open up to showcase the variations */
+#currentDisplay{
+    display: none;
+}
+
+
+/* navbar used to select between base game or dlc characters */
+#navbar{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    border: solid purple 2px;
+    margin-bottom: 30px;
+}
+
+.navbarText{
+    margin: 0px;
+    color: white;
+    border: solid red 2px;
+
+}
+
+/* grid that actaully holds charactert cards */
+#characterGrid{
     border: solid blue 2px;
     width: 100%;
-    height: 400px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
     padding: 10px;
     gap: 10px;
 }
 
 
 .card{
-  
-
     border: solid green 2px;
     grid-column: span 1;
+    height: 300px;
+
+background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
 }
+
+.cardNameText{
+    margin: 0px;
+    color: rgb(210, 13, 13);
+    
+}
+
+
+
+

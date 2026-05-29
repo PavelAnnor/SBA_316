@@ -7,16 +7,35 @@ const loadingScreenImgUrls = ["./src/loadingscreens/loadingScreen1.png","./src/l
 
 
 
-console.log("hello")
+
 
 //Overlay that initially covers entire screen 
 const curtain = document.getElementById("curtain")
+
+//mainpage
 const mainPage = document.querySelector("#mainPage")
+
+//grid container that holds the cards
+const characterGrid = document.getElementById("characterGrid")
 
 //work on the chracter change later
 // curtain.style.backgroundImage = `url(${loadingScreenImgUrls[2]})`
 
+//for loop to create the required amount of cards depending on how many 
+//objects in our array
+for(let character of characters){
 
+   let card=  document.createElement("div")
+   let text = document.createElement("h1")
+   text.textContent = character.name
+   text.classList.add("cardNameText")
+   card.appendChild(text)
+   card.classList.add("card")
+   card.style.backgroundImage = "url(./src/characterCardImgs/mobile_02.png)"
+   characterGrid.appendChild(card)
+
+
+}
 
 
 
