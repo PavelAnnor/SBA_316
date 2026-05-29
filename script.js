@@ -27,12 +27,8 @@ const curtainImgs = curtain.getElementsByTagName("img");
 let nxt = 1;
 
 const loadingScreenLoop2 = setInterval(()=>{
-
-  
   if(nxt>4)
     nxt = 0;
-  
-  
   loopThroughImgs2(nxt)
   nxt++
 },6000)
@@ -47,34 +43,6 @@ const imgSrcs = ['./src/loadingscreens/loadingScreen1.jpeg',
   "./src/loadingscreens/loadingScreen5.jpeg"
 
 ]
-
-function loopThroughImgs() {
-    console.log("starting")
-
-    //img u want to fade in
-    let fadeInImg = document.getElementById("fadeIn");
-    
-    //img u want to fadeout
-    let fadeOutImg = document.getElementById("fadeOut");
-
-    //fade in the image
-    fadeInImg.classList.toggle("fadeInAnimation");
-    fadeOutImg.classList.toggle("fadeOutAnimation")
-    
-    //wait till animation is done
-    setTimeout(()=>{
-
-      //save the src of the fadeout img
-      let x = fadeOutImg.src
-        fadeOutImg.src = fadeInImg.src //switch the img srcs
-        fadeInImg.src = x
-
-        //return back to normal so u can fade again
-        fadeOutImg.classList.remove("fadeOutAnimation")
-        fadeInImg.classList.remove("fadeInAnimation")
-    },3000)
-    
-}
 
 function loopThroughImgs2(nxt) {
     console.log("starting")
@@ -101,34 +69,48 @@ function loopThroughImgs2(nxt) {
         //return back to normal so u can fade again
         fadeOutImg.classList.remove("fadeOutAnimation")
         fadeInImg.classList.remove("fadeInAnimation")
-    },3000)
+    },5000)
     
 }
-
-
 
 //for loop to create the required amount of cards depending on how many object with imgs in our characters array 
 for(let character of characters){
    
   
       
-    //dynamically create rows based on cardct so everyhting fits 
+    //dynamically create rows based on cardcount so everyhting fits 
     if (character.img != "") {
       cardct += 1;
+      //add extra row every 4 cards
       if (cardct > 4 && cardct % 4 == 0) {
         rowct += 1;
         characterGrid.style.gridTemplateRows = `repeat(${rowct},1fr)`;
       }
-      let card = document.createElement("div");
-      let text = document.createElement("h1");
+
+    
+      let card = document.createElement("div");//create the card
+      card.classList.add("card");
+
+      let text = document.createElement("h1");// some text
       text.textContent = character.name;
       text.classList.add("cardNameText");
-        card.appendChild(text);
-      card.classList.add("card");
-      let img = document.createElement("img");
+
+      let img = document.createElement("img"); //the img
       img.src = character.img;
-    card.appendChild(img)
+      img.classList.add("cardImg")
+     
+      let variationsDiv ;//the variatiosn div
+      
+      card.appendChild(img)
+      card.appendChild(text);
+      //apend variation dive last 
+      
+      
+      
+      
+
       characterGrid.appendChild(card);
+      
     }
 
     
@@ -139,6 +121,22 @@ for(let character of characters){
 }
 
 
+function createVariations(){
+
+}
+
+
+function variationsAppear(event){
+
+  const card = event.currentTarget; //make sure the target is always the card itself so i can access its children
+  card.children[1].style.display = "block"
+}
+
+function variationsDisappear(event){
+
+  const card = event.currentTarget; //make sure the target is always the card itself so i can access its children
+  card.children[1].style.display = "none"
+}
 
 
 

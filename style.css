@@ -13,6 +13,7 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
+    z-index: 50;
    
     
 
@@ -43,13 +44,13 @@ body {
 
 .fadeInAnimation{
     opacity: 100%;
-    transition-duration: 3s;
+    transition-duration: 5s;
     
 }
 
 .fadeOutAnimation{
     opacity: 0%;
-    transition-duration: 3s;
+    transition-duration: 5s;
     
 }
 
@@ -69,7 +70,7 @@ body {
     border: solid black 2px;
     width: 100%;
     display: flex;
-    height: 150px;
+    height: 17vh;
     background-color: black;
     align-items: center;
     padding-left: 30px;
@@ -175,3 +176,27 @@ body {
     z-index: 2;
 
 }
+
+.variationDivContainer{
+    position: absolute;
+    border: 2px green solid;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(36, 135, 135, 0.248);
+    z-index: 5;
+    display: none;
+    
+    
+   
+}
+
+
+
+.variationThird{
+    width: 100%;
+    height: 33%;
+    border: solid orange 1px;
+}
+
+
+
