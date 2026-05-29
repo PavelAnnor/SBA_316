@@ -104,9 +104,17 @@ for(let character of characters){
       card.appendChild(img)
       card.appendChild(text);
       //apend variation dive last 
+     
+      //create a fragment 
+      let frag = document.createDocumentFragment();
+
+      //use that frag to appened variations div
+      createVariations(frag)
+      card.appendChild(frag)
       
-      
-      
+
+      card.addEventListener("mouseover", variationsAppear);
+      card.addEventListener("mouseout",variationsDisappear)
       
 
       characterGrid.appendChild(card);
@@ -121,21 +129,39 @@ for(let character of characters){
 }
 
 
-function createVariations(){
+
+function createVariations(frag){
+
+  //create large container
+  let container = document.createElement("div");
+  container.classList.add("variationDivContainer")
+
+  //create 3 subsections and append to large container
+  for(let i =0; i<3; i++){
+    let x = document.createElement('div')
+    x.classList.add("variationThird")
+    container.appendChild(x)
+  }
+
+  //append the container to the frag
+  frag.appendChild(container)
+
 
 }
 
 
 function variationsAppear(event){
 
+  console.log("vAriations")
   const card = event.currentTarget; //make sure the target is always the card itself so i can access its children
-  card.children[1].style.display = "block"
+  card.children[2].style.display = "block"
 }
 
 function variationsDisappear(event){
 
+  console.log("vAriations")
   const card = event.currentTarget; //make sure the target is always the card itself so i can access its children
-  card.children[1].style.display = "none"
+  card.children[2].style.display = "none"
 }
 
 
