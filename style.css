@@ -1,45 +1,70 @@
-body{
+body {
     margin: 0px;
     width: 100%;
-    background-color: rgb(74, 73, 73);
-   
+    background-color: rgb(25, 24, 24);
+
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-#curtain{
+#curtain {
     width: 100vw;
     height: 100vh;
+    display: flex;
+   
+    
 
-    background-image: url(./src/loadingscreens/loadingScreen1.jpeg);
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-color: rgb(40, 39, 39);
-    transition-duration: 1s;
-    
-    
+    background-color: rgb(40, 39, 39); */
+
 }
 
-.slideUpAnimation{ 
+#curtain img{
+
+    width: 100%;
+    height: 100%;
+    transition-property: opacity;
     position: absolute;
+   
+    
+    
+
+}
+
+.slideUpAnimation {
+    transition-duration: 5s;
+    position: absolute;
+    z-index: 5;
     transform: translateY(-100%);
 }
 
+.fadeInAnimation{
+    opacity: 100%;
+    transition-duration: 3s;
+    
+}
 
-#curtain:hover{
-    background-image: url(./src/loadingscreens/loadingScreen2.jpeg);
+.fadeOutAnimation{
+    opacity: 0%;
+    transition-duration: 3s;
+    
 }
 
 
 
-#mainPage{
+
+
+
+
+#mainPage {
     display: none;
 
 }
 
-#header{
+#header {
 
     border: solid black 2px;
     width: 100%;
@@ -54,17 +79,17 @@ body{
 }
 
 
-#header img{
+#header img {
     height: 80%;
 }
 
-#logo{
+#logo {
     margin-left: auto;
     /* margin-right: 5%; */
 }
 
 /* "choose your fighter text" */
-.titleText{
+.titleText {
     font-family: MajestyBold, Times New Roman, serif;
     color: white;
     text-align: center;
@@ -75,13 +100,13 @@ body{
 
 
 /* Div that will open up to showcase the variations */
-#currentDisplay{
+#currentDisplay {
     display: none;
 }
 
 
 /* navbar used to select between base game or dlc characters */
-#navbar{
+#navbar {
     width: 80%;
     display: flex;
     justify-content: space-around;
@@ -93,7 +118,7 @@ body{
     margin-bottom: 30px;
 }
 
-.navbarText{
+.navbarText {
     margin: 0px;
     color: white;
     border: solid red 2px;
@@ -101,56 +126,52 @@ body{
 }
 
 /* grid that actaully holds charactert cards */
-#characterGrid{
-    
+#characterGrid {
+
     width: 95vw;
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4,1fr);
-    gap: 1%;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 20px;
+    column-gap: 10px;
     
-   
+
+
 }
 
-
-.card{
-    
+/* each card in the grid */
+.card {
     grid-column: span 1;
     grid-row: span 1;
     aspect-ratio: 1;
-    background-image:linear-gradient(rgb(59, 58, 58),rgb(10, 9, 9));
+    background-image: linear-gradient(rgb(59, 58, 58), rgb(10, 9, 9));
     background-repeat: no-repeat;
-  background-size: 100% 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  object-fit: contain;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid lightblue;
-    
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    object-fit: contain;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid lightblue;
+
 
 }
 
-.card img{
+
+.card img {
     height: 100%;
     position: absolute;
     z-index: 1;
 }
 
- 
 
-
-.cardNameText{
+.cardNameText {
     margin: 0px;
     color: rgb(210, 13, 13);
     margin-bottom: 10%;
     z-index: 2;
-    
+
 }
-
-
-
-
