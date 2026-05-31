@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="module" src="./script.js" defer ></script>
+    <link href="https://fonts.cdnfonts.com/css/mkx-title" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +13,7 @@
     <section id="curtain">
         <img src = "./src/loadingscreens/loadingScreen1.jpeg" id = "fadeIn"   >
         <img src = "./src/loadingscreens/loadingScreen5.jpeg" id = "fadeOut"  >
+        <h1 class = "curtainText">LOADING...</h1>
     </section>
     
     <section id = "mainPage" >
@@ -22,30 +24,42 @@
     
         <h1 class = "titleText">Choose your figther</h1>
 
-        <div id = "currentDisplay" ></div>
+       
 
-        <div id = "navbar">
+        <!-- <div id = "navbar">
 
             <p class = "navbarText">Base Game</p>
             <p class = "navbarText">Kombat Pack 2</p>
             <p class = "navbarText">Kombat Pack 3</p>
 
-        </div>
+        </div> -->
+
+         <div id = "mainDisplay" >
+            <p class = "displayBio"> </p>
+
+        <p class = "variationNameText"></p>
+        <p class = "variationDescriptionText"></p>
+         
+        
+         </div>
 
 
-        <div id = "characterGrid">
-            <div class = "card" id = "testCard">
-                <img src = "./src/characterCardImgs/jax.png"  class = "cardImg">
-                <h1 class = "cardNameText" id = "testCard">Test Card</h1>
-                <div class = "variationDivContainer">
-                    <div class = "variationThird"></div>
-                     <div class = "variationThird"></div>
-                      <div class = "variationThird"></div>
-                </div>
-            </div>
-        </div>
+        <div id = "characterGrid"></div>
     
     </section>
+
+    <!-- <div id = "testDisplay">
+
+        <p class = "displayBio">Cassandra Carlton Cage, the daughter of Johnny Cage and Sonya Blade, has a lot to live up to. Her parents were among the few kombatants to survive the wars against Outworld and Netherrealm, and were instrumental to Earthrealm's victories. 
+            Cassie is as strong-willed--and occasionally hotheaded--as her mother; and as quick-witted as her beloved dad, which makes her popular within her Special Forces unit. 
+            But these traits hide a seed of self-doubt cultivated by the demanding nature of her commanding officer: Sonya. </p>
+
+        <p class = "variationNameText">Variation: Fire Fist</p>
+        <p class = "variationDescriptionText">Gains stylish Air Akimbo Gunshots and Nut Kracker</p>
+         
+        
+      
+    </div> -->
 
 
     

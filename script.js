@@ -1,9 +1,8 @@
-import {characters} from "./characters.js";
+import {characters} from "./characters.js"
+import { getCharacter } from "./characters.js";
 
 //IMPORTANT COUNTER VARIABLES
-//used to create grid dynamically
-let rowct = 1
-let cardct = 0;
+
 
 //used for fade in animation
 let curtainImageId =0;
@@ -17,6 +16,8 @@ const curtain = document.getElementById("curtain")
 const mainPage = document.querySelector("#mainPage")
 //grid container that holds the cards
 const characterGrid = document.getElementById("characterGrid")
+//div that will show character info
+const mainDisplay = document.getElementById("mainDisplay")
 
 
 //Nodelists, arrays, HTML collections 
@@ -36,6 +37,14 @@ const loadingScreenLoop2 = setInterval(()=>{
 
 
 
+// const imgSrcs = ['./src/loadingscreens/loadingScreen1.jpeg',
+//   "./src/loadingscreens/loadingScreen2.jpeg",
+//   "./src/loadingscreens/loadingScreen3.jpeg",
+//   "./src/loadingscreens/loadingScreen4.jpeg",
+//   "./src/loadingscreens/loadingScreen5.jpeg"
+
+// ]
+
 const imgSrcs = ['./src/loadingscreens/loadingScreen1.jpeg',
   "./src/loadingscreens/loadingScreen2.jpeg",
   "./src/loadingscreens/loadingScreen3.jpeg",
@@ -45,7 +54,7 @@ const imgSrcs = ['./src/loadingscreens/loadingScreen1.jpeg',
 ]
 
 function loopThroughImgs2(nxt) {
-    console.log("starting")
+    // console.log("starting")
 
     //img u want to fade in
     let fadeInImg = document.getElementById("fadeIn");
@@ -80,16 +89,12 @@ for(let character of characters){
       
     //dynamically create rows based on cardcount so everyhting fits 
     if (character.img != "") {
-      cardct += 1;
-      //add extra row every 4 cards
-      if (cardct > 4 && cardct % 4 == 0) {
-        rowct += 1;
-        characterGrid.style.gridTemplateRows = `repeat(${rowct},1fr)`;
-      }
+     
 
     
       let card = document.createElement("div");//create the card
       card.classList.add("card");
+      card.id = character.name
 
       let text = document.createElement("h1");// some text
       text.textContent = character.name;
@@ -111,8 +116,22 @@ for(let character of characters){
       //use that frag to appened variations div
       createVariations(frag)
       card.appendChild(frag)
+
+      let vari  =Array.from(card.getElementsByClassName("variationThird"))
+      console.log(vari)
+      for(let v in vari){
+        let text = document.createElement("p")
+        console.log(v)
+        text.textContent = character.variations[v].variationName
+        text.classList.add("variationText")
+        vari[v].appendChild(text)
+
+      }
+
+      
       
 
+      //add the event listeners 
       card.addEventListener("mouseover", variationsAppear);
       card.addEventListener("mouseout",variationsDisappear)
       
@@ -140,6 +159,7 @@ function createVariations(frag){
   for(let i =0; i<3; i++){
     let x = document.createElement('div')
     x.classList.add("variationThird")
+    x.addEventListener("click",displayVariationInfo)
     container.appendChild(x)
   }
 
@@ -152,16 +172,16 @@ function createVariations(frag){
 
 function variationsAppear(event){
 
-  console.log("vAriations")
+
   const card = event.currentTarget; //make sure the target is always the card itself so i can access its children
-  card.children[2].style.display = "block"
+  card.children[2].style.display = "flex"; //make the fragment appened varitions div appear
+  card.children[1].style.display = "none" //make the text dissapear
 }
 
 function variationsDisappear(event){
-
-  console.log("vAriations")
   const card = event.currentTarget; //make sure the target is always the card itself so i can access its children
-  card.children[2].style.display = "none"
+  card.children[2].style.display = "none" //make the fragment appened varitions div disappear
+  card.children[1].style.display = "block" //make the text reappear
 }
 
 
@@ -171,8 +191,9 @@ curtain.addEventListener("click",liftCurtain)
 
 //When the user clicks, moves the curtain up, unveil the rest of the page, delete the curtain element 
 function liftCurtain(){
-    console.log("Lifting curtain")
+    // console.log("Lifting curtain")
     curtain.classList.add("slideUpAnimation") //add the class for the animation
+    curtain.style.position = "absolute"
     mainPage.style.display = "block"
     setTimeout(()=>{
         curtain.remove();
@@ -181,6 +202,50 @@ function liftCurtain(){
     },5001)
 
     clearInterval(loadingScreenLoop2)
+
+}
+
+
+function displayVariationInfo(event){
+
+  //make the div visible 
+
+  //get the variation name u clicked on
+  let variationName = event.currentTarget.children[0].textContent
+  console.log(variationName)
+
+  //get the corresponding charcater object from the array 
+  let charName = event.currentTarget.parentElement.parentElement.id
+  let x = getCharacter(charName)
+ 
+
+ 
+
+  //set the text conent and required backgroudn image
+  mainDisplay.children[0].textContent = x.bio
+  mainDisplay.children[1].textContent = `Variation: ${variationName}`
+  mainDisplay.children[2].textContent=  x.variations.find((element)=>element.variationName==variationName).variationDescription
+  mainDisplay.style.backgroundImage = `url(${x.wallpaper})`
+ 
+
+  
+  
+  if(mainDisplay.style.display === "" ||mainDisplay.style.display=="none" ){
+    mainDisplay.style.display = "block"
+  }
+
+   
+  
+  else{
+    mainDisplay.style.display= "none"
+  } 
+    
+
+
+
+  
+
+
 
 }
 

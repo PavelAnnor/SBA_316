@@ -5,8 +5,11 @@ body {
 
 }
 
+
+
 * {
     box-sizing: border-box;
+    font-family: 'MKX Title', serif;
 }
 
 #curtain {
@@ -14,12 +17,8 @@ body {
     height: 100vh;
     display: flex;
     z-index: 50;
+    position: relative;
    
-    
-
-    /* background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-color: rgb(40, 39, 39); */
 
 }
 
@@ -29,9 +28,30 @@ body {
     height: 100%;
     transition-property: opacity;
     position: absolute;
-   
-    
-    
+      
+
+}
+
+/* Definently not copied from W3 Schools */
+@keyframes myAnimation {
+  from {opacity: 1;}
+  to {opacity: 0.5;}
+}
+
+.curtainText{
+    position: absolute;
+    z-index: 53;
+    color: rgb(203, 200, 200);
+    bottom: 5%;
+    left: 10%;
+    font-size: 8rem;
+    display: flex;
+    letter-spacing: 7px;
+  
+animation-name: myAnimation;
+  animation-duration: 4s;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
 
 }
 
@@ -53,8 +73,6 @@ body {
     transition-duration: 5s;
     
 }
-
-
 
 
 
@@ -91,7 +109,7 @@ body {
 
 /* "choose your fighter text" */
 .titleText {
-    font-family: MajestyBold, Times New Roman, serif;
+    font-weight: 20;
     color: white;
     text-align: center;
     font-size: 100px;
@@ -101,9 +119,63 @@ body {
 
 
 /* Div that will open up to showcase the variations */
-#currentDisplay {
+#mainDisplay {
     display: none;
+    width: 100%;
+    height: 60%;
+    border: solid rgb(0, 145, 255) 2px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 700px;
+    overflow: hidden;
+    overflow-y: auto; 
+    margin-bottom: 30px;
 }
+
+.displayBio, .variationDescriptionText, .variationNameText{
+    margin: 0px;
+    display: flex; 
+    align-items: center;
+}
+
+.displayBio{
+    color: white;
+    border: solid green;
+    width: 65%;
+    height: 70%;
+    font-size: 100%;
+    display: flex;
+    border: solid green;
+   
+    font-size: 1.5rem;
+    align-items: center;
+    
+}
+
+.variationNameText{
+    color: white;
+    border: solid rgb(21, 86, 167);
+    height: 15%;
+    font-size: 1.5rem;
+    color: rgb(249, 124, 124);
+   
+  
+   
+}
+
+.variationDescriptionText{
+     height: 15%;
+    /* border: solid blue; */
+     color: white;
+     height: 20%;
+     font-size: 1.5rem;
+   
+    
+}
+
 
 
 /* navbar used to select between base game or dlc characters */
@@ -134,7 +206,7 @@ body {
     margin-right: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
     row-gap: 20px;
     column-gap: 10px;
     
@@ -182,9 +254,12 @@ body {
     border: 2px green solid;
     height: 100%;
     width: 100%;
-    background-color: rgba(36, 135, 135, 0.248);
+    background-color: rgba(7, 19, 19, 0.616);
     z-index: 5;
     display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    
     
     
    
@@ -196,7 +271,40 @@ body {
     width: 100%;
     height: 33%;
     border: solid orange 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.variationThird:hover{
+    background-color: rgba(6, 79, 79, 0.565);
+}
+
+.variationText{
+
+    color:blue;
+    font-size: 2rem;
 }
 
 
+/* 
+#testDisplay{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 700px;
+    border: solid green;
+    background-image: url('./src/wallpapers/liuWallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    
+}
+
+#testDisplay img{
+    width: 100%;
+    aspect-ratio: 1.7;
+    padding: 10%;
+
+   
+} */
 
