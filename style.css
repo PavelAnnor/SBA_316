@@ -12,6 +12,12 @@ body {
     font-family: 'MKX Title', serif;
 }
 
+hr{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+     margin-bottom: 40px;
+}
 #curtain {
     width: 100vw;
     height: 100vh;
@@ -93,7 +99,9 @@ animation-name: myAnimation;
     align-items: center;
     padding-left: 30px;
     padding-right: 30px;
-    margin-bottom: 40px;
+     margin-bottom: 20px;
+   
+    border: solid rgb(72, 71, 71) ;
 
 }
 
@@ -123,7 +131,7 @@ animation-name: myAnimation;
     display: none;
     width: 100%;
     height: 60%;
-    border: solid rgb(0, 145, 255) 2px;
+    border: solid rgb(177, 213, 240) 2px;
     background-repeat: no-repeat;
     background-size: 100% 100%; 
     width: 90%;
@@ -133,33 +141,34 @@ animation-name: myAnimation;
     overflow: hidden;
     overflow-y: auto; 
     margin-bottom: 30px;
+    padding: 20px;
+    font-size: 100%;
+
 }
 
 .displayBio, .variationDescriptionText, .variationNameText{
     margin: 0px;
     display: flex; 
     align-items: center;
+    padding-left: 20px;
+    margin-bottom: 20px;
 }
 
 .displayBio{
     color: white;
-    border: solid green;
-    width: 65%;
-    height: 70%;
-    font-size: 100%;
-    display: flex;
-    border: solid green;
    
-    font-size: 1.5rem;
+    width: 65%;
+
+    display: flex;
+    
+    font-size: 2em;
     align-items: center;
     
 }
 
 .variationNameText{
-    color: white;
-    border: solid rgb(21, 86, 167);
-    height: 15%;
-    font-size: 1.5rem;
+    color: white;  
+    font-size: 2rem;
     color: rgb(249, 124, 124);
    
   
@@ -167,11 +176,9 @@ animation-name: myAnimation;
 }
 
 .variationDescriptionText{
-     height: 15%;
     /* border: solid blue; */
      color: white;
-     height: 20%;
-     font-size: 1.5rem;
+     font-size: 2rem;
    
     
 }
@@ -243,7 +250,7 @@ animation-name: myAnimation;
 
 .cardNameText {
     margin: 0px;
-    color: rgb(210, 13, 13);
+    color: rgb(255, 254, 254);
     margin-bottom: 10%;
     z-index: 2;
 
@@ -251,7 +258,6 @@ animation-name: myAnimation;
 
 .variationDivContainer{
     position: absolute;
-    border: 2px green solid;
     height: 100%;
     width: 100%;
     background-color: rgba(7, 19, 19, 0.616);
@@ -259,52 +265,38 @@ animation-name: myAnimation;
     display: none;
     flex-direction: column;
     justify-content: space-around;
-    
-    
-    
-   
+ 
 }
 
+.active-card{
+    
 
+}
+
+.active-variation{
+    background-color: rgb(7, 30, 238);
+}
 
 .variationThird{
     width: 100%;
     height: 33%;
-    border: solid orange 1px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
+
 .variationThird:hover{
-    background-color: rgba(6, 79, 79, 0.565);
+    background-color: rgba(18, 29, 68, 0.565);
 }
 
 .variationText{
 
-    color:blue;
+    color:rgb(74, 135, 221);
     font-size: 2rem;
 }
 
 
-/* 
-#testDisplay{
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 700px;
-    border: solid green;
-    background-image: url('./src/wallpapers/liuWallpaper.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%; 
-    
-}
 
-#testDisplay img{
-    width: 100%;
-    aspect-ratio: 1.7;
-    padding: 10%;
-
-   
-} */
 

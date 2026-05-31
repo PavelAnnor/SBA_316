@@ -1,11 +1,9 @@
+//IMPORTS
 import {characters} from "./characters.js"
 import { getCharacter } from "./characters.js";
 
-//IMPORTANT COUNTER VARIABLES
 
 
-//used for fade in animation
-let curtainImageId =0;
 
 
 //MAJOR SECTIONS
@@ -37,14 +35,6 @@ const loadingScreenLoop2 = setInterval(()=>{
 
 
 
-// const imgSrcs = ['./src/loadingscreens/loadingScreen1.jpeg',
-//   "./src/loadingscreens/loadingScreen2.jpeg",
-//   "./src/loadingscreens/loadingScreen3.jpeg",
-//   "./src/loadingscreens/loadingScreen4.jpeg",
-//   "./src/loadingscreens/loadingScreen5.jpeg"
-
-// ]
-
 const imgSrcs = ['./src/loadingscreens/loadingScreen1.jpeg',
   "./src/loadingscreens/loadingScreen2.jpeg",
   "./src/loadingscreens/loadingScreen3.jpeg",
@@ -72,7 +62,7 @@ function loopThroughImgs2(nxt) {
       //save the src of the fadeout img
         fadeOutImg.src = fadeInImg.src //switch the img srcs
         fadeInImg.src = imgSrcs[nxt]
-        console.log(imgSrcs[nxt])
+
         
 
         //return back to normal so u can fade again
@@ -118,10 +108,8 @@ for(let character of characters){
       card.appendChild(frag)
 
       let vari  =Array.from(card.getElementsByClassName("variationThird"))
-      console.log(vari)
       for(let v in vari){
         let text = document.createElement("p")
-        console.log(v)
         text.textContent = character.variations[v].variationName
         text.classList.add("variationText")
         vari[v].appendChild(text)
@@ -196,57 +184,196 @@ function liftCurtain(){
     curtain.style.position = "absolute"
     mainPage.style.display = "block"
     setTimeout(()=>{
-        curtain.remove();
-        console.log("Done");
-        
+        curtain.remove();    
     },5001)
 
     clearInterval(loadingScreenLoop2)
 
 }
 
-
+//make the maindisplay div visible or invisible
 function displayVariationInfo(event){
-
-  //make the div visible 
 
   //get the variation name u clicked on
   let variationName = event.currentTarget.children[0].textContent
-  console.log(variationName)
 
-  //get the corresponding charcater object from the array 
+  //get the corresponding charcater object from the array  
   let charName = event.currentTarget.parentElement.parentElement.id
   let x = getCharacter(charName)
- 
-
- 
-
-  //set the text conent and required backgroudn image
-  mainDisplay.children[0].textContent = x.bio
-  mainDisplay.children[1].textContent = `Variation: ${variationName}`
-  mainDisplay.children[2].textContent=  x.variations.find((element)=>element.variationName==variationName).variationDescription
-  mainDisplay.style.backgroundImage = `url(${x.wallpaper})`
- 
 
   
+
+   //get me the current variation
+  let currentVari = event.currentTarget
+
+
+  //get me the current card
+  let currentCard = event.currentTarget.parentElement.parentElement
+
+
   
-  if(mainDisplay.style.display === "" ||mainDisplay.style.display=="none" ){
-    mainDisplay.style.display = "block"
+
+  //get me an array of the varaitons on the card
+   let variations = (currentCard.children)
+
+
+
+  //if its a new card remove active from all other variations and cards
+  if(!currentCard.classList.contains("active-card")){
+    let allvariations = document.getElementsByClassName("variationThird")
+    for(let x of allvariations) 
+      x.classList.remove("active-variation")
+
+    let allCards = document.getElementsByClassName("card")
+     for(let x of allCards) 
+      x.classList.remove("active-card")
+
+      //populate the main display and open it 
+      mainDisplay.children[0].textContent = x.bio
+      mainDisplay.children[1].textContent = variationName
+      mainDisplay.children[2].textContent = x.variations.find((element)=>element.variationName==variationName).variationDescription
+      mainDisplay.style.backgroundImage = `url(${x.wallpaper})` 
+      mainDisplay.style.display = "block"
+      
+      //add active classes
+      currentCard.classList.add("active-card")
+      currentVari.classList.add("active-variation")
+
+      return
+
   }
 
-   
-  
+
+  //same card
   else{
-    mainDisplay.style.display= "none"
-  } 
+
+    //different variation, just change the text content
+    if(!currentVari.classList.contains("active-variation")){
+      mainDisplay.children[0].textContent = x.bio
+      mainDisplay.children[1].textContent = variationName
+      mainDisplay.children[2].textContent = x.variations.find((element)=>element.variationName==variationName).variationDescription
+
+      //remove active from other varations 
+    let allvariations = document.getElementsByClassName("variationThird")
+    for(let x of allvariations) 
+      x.classList.remove("active-variation")
+
+    //add active to current variation 
+    currentVari.classList.add("active-variation")
+    return
+    }
+
+    //same card same variation, just close the main display remove active from vard and variaotn 
+    else{
+      mainDisplay.style.display = "none";
+      currentVari.classList.remove("active-variation")
+      currentCard.classList.remove("active-card")
+      return
+    }
+      
+
+
+
+
+  }
+
+
+  //   //if you click on an active vari, close the main display remove active from variation and card
+  // if(currentVari.classList.contains("active-variation")){
+  //   mainDisplay.style.display = "none"
+  //   currentVari.classList.remove("active-variation")
+  //   currentCard.classList.remove("active-card")
+  //   return
+  //  }
+   
+  //  //if its a new variation
+  //  if(!currentVari.classList.contains("active-variation")){
+  //   currentVari.classList.add("active-variation")
+  //   mainDisplay.children[0].textContent = x.bio
+  //   mainDisplay.children[1].textContent = variationName
+  //   mainDisplay.children[2].textContent = x.variations.find((element)=>element.variationName==variationName).variationDescription
+    
+
+  //   //if its a new card
+  //   if(!currentCard.classList.contains("active-card")){
+  //     mainDisplay.style.display = "block"
+  //     currentCard.classList.add("active-card")
+  //     mainDisplay.style.backgroundImage = `url(${x.wallpaper})`
+  //     mainDisplay.style.display = "block"
+
+  //   }
     
 
 
 
+  //  }
+
+
+
+  //  //assign active to the card
+  //  currentCard.classList.add("active")
+
+  //  //rmoeve active from other variations 
+  //  for(x of variations)
+  //   x.classList.remove("active")
+
   
 
 
 
-}
+
+  //   //toggle active on current variation 
+  //  currentVari.classList.add("active")
+
+   }
+
+   
+
+   
+ 
+  
+
+
+  
+  
+
+  // event.target.
+
+  // console.log(mainDisplay.style.display==""|| mainDisplay.style.display == "none");
+  // //toggle the class of active on the card. 
+  // event.currentTarget.parentElement.parentElement.classList.toggle("active")
+
+  // //if the card is already active, dont close the main display, just change the text (works if u select a variation on the same character card)
+  // if(!event.currentTarget.parentElement.parentElement.classList.contains("active")){
+
+  //   //set the text conent and required backgroudn image
+  
+  //   mainDisplay.style.backgroundImage = `url(${x.wallpaper})`
+ 
+
+  // }
+
+  // else{
+  //   mainDisplay.style.display = "block"
+
+  // }
+
+ 
+ 
+
+  
+ 
+
+ 
+
+  
+
+
+
+  
+
+
+
+
 
 
