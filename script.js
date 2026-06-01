@@ -4,7 +4,6 @@ import { getCharacter } from "./characters.js";
 
 
 //MAJOR SECTIONS
-
 //Overlay that initially covers entire screen 
 const curtain = document.getElementById("curtain")
 //mainpage
@@ -16,13 +15,23 @@ const mainDisplay = document.getElementById("mainDisplay")
 
 
 //Nodelists, arrays, HTML collections 
-
 //all the images in the curtain
 const curtainImgs = curtain.getElementsByTagName("img");
+
+//array of srcs for the images on the loading screen
+const imgSrcs = ['./src/loadingscreens/loadingScreen1.jpeg',
+  "./src/loadingscreens/loadingScreen2.jpeg",
+  "./src/loadingscreens/loadingScreen3.jpeg",
+  "./src/loadingscreens/loadingScreen4.jpeg",
+  "./src/loadingscreens/loadingScreen5.jpeg"
+
+]
 
 //Counter Variables
 let nxt = 1;
 
+
+//interval to constantly loop through images on the loadign sceen every 6 sec
 const loadingScreenLoop2 = setInterval(()=>{
   if(nxt>4)
     nxt = 0;
@@ -33,15 +42,10 @@ const loadingScreenLoop2 = setInterval(()=>{
 
 
 
-const imgSrcs = ['./src/loadingscreens/loadingScreen1.jpeg',
-  "./src/loadingscreens/loadingScreen2.jpeg",
-  "./src/loadingscreens/loadingScreen3.jpeg",
-  "./src/loadingscreens/loadingScreen4.jpeg",
-  "./src/loadingscreens/loadingScreen5.jpeg"
-
-]
 
 
+
+//fragment used to 3 variations to each card
 function createVariations(frag){
 
   //create large container
@@ -62,15 +66,12 @@ function createVariations(frag){
 
 }
 
-
+//when the mouse is over a card, variation options should appear and dissapear
 function variationsAppear(event){
-
-
   const card = event.currentTarget; //make sure the target is always the card itself so i can access its children
   card.children[2].style.display = "flex"; //make the fragment appened varitions div appear
   card.children[1].style.display = "none" //make the text dissapear
 }
-
 function variationsDisappear(event){
   const card = event.currentTarget; //make sure the target is always the card itself so i can access its children
   card.children[2].style.display = "none" //make the fragment appened varitions div disappear
@@ -89,7 +90,7 @@ function liftCurtain(){
         curtain.remove();    
     },5001)
 
-    clearInterval(loadingScreenLoop2)
+    clearInterval(loadingScreenLoop2) //cleart interval so no errros
 
 }
 
@@ -188,7 +189,7 @@ function displayVariationInfo(event){
 
 }
 
-
+//function for the loading page, loops through 5 images 
    function loopThroughImgs2(nxt) {
     // console.log("starting")
 
@@ -205,9 +206,9 @@ function displayVariationInfo(event){
     //wait till animation is done
     setTimeout(()=>{
 
-      //save the src of the fadeout img
-        fadeOutImg.src = fadeInImg.src //switch the img srcs
-        fadeInImg.src = imgSrcs[nxt]
+        //switch the img srcs to give impression they replaced each other
+        fadeOutImg.src = fadeInImg.src   
+        fadeInImg.src = imgSrcs[nxt]  //give the image in the back the next src in the array 
 
         
 
