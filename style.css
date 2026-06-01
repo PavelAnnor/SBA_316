@@ -190,7 +190,7 @@ animation-name: myAnimation;
 }
 
 .variationDescriptionText{
-    /* border: solid blue; */
+   
      color: white;
      font-size: 2rem;
    
@@ -309,6 +309,42 @@ animation-name: myAnimation;
 
     color:rgb(74, 135, 221);
     font-size: 2rem;
+}
+
+.formText{
+    color: white;
+    font-weight: 20;
+    color: rgb(254, 254, 254);
+    text-align: center;
+    font-size: 40px;
+    margin: 0px;
+    margin-bottom: 30px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+   text-align: center;
+   border: solid grey;
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 40px;
+   justify-content: center;
+   align-items: center;
+}
+
+input{
+    width: 30%;
+    height: 40px;
+    text-align: center;
+    
+}
+
+#submitBt{
+    background-color: grey;
+
 }
 
 

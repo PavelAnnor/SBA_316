@@ -13,6 +13,11 @@ const characterGrid = document.getElementById("characterGrid")
 //div that will show character info
 const mainDisplay = document.getElementById("mainDisplay")
 
+//form and its inputs
+const form1 = document.querySelector("form")
+const submit = form1.elements[1]
+const textInput = form1.elements[0]
+
 
 //Nodelists, arrays, HTML collections 
 //all the images in the curtain
@@ -270,16 +275,41 @@ function displayVariationInfo(event){
 
 
 
+function validateForm(event){
+
+  
+  event.preventDefault()
+
+  //get list of all names of characters i have
+  let x = characters.map((element)=>
+  {return element.name.toLowerCase()}
+  )
+
+  let y = textInput.value.toLowerCase()
+
+  
+
+  //i their suggesting someone i have
+  if(x.includes(y)){
+    alert("I already have that character. Suggest a new one.")
+    textInput.style.backgroundColor = "rgb(211, 106, 106)"
+    return
+
+
+  }
+
+   alert("Form Submited. Thank you for your input!")
+   textInput.style.backgroundColor = "";
+   form1.reset()
+   return
 
 
 
 
 
+}
 
-
-
-//for loop to create the required amount of cards depending on how many object with imgs in our characters array 
-
+form1.addEventListener('submit',validateForm)
 
 
 
