@@ -84,6 +84,8 @@ animation-name: myAnimation;
 
 
 
+
+
 #mainPage {
     display: none;
 
@@ -99,26 +101,33 @@ animation-name: myAnimation;
     align-items: center;
     padding-left: 30px;
     padding-right: 30px;
-     margin-bottom: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    gap: 10px;
    
     border: solid rgb(72, 71, 71) ;
 
 }
 
+.headerText{
+    color: white;
+     font-weight: 2;
+      font-size: 60px;
+}
+
 
 #header img {
-    height: 80%;
+    height: 70%;
 }
 
 #logo {
-    margin-left: auto;
-    /* margin-right: 5%; */
+
 }
 
 /* "choose your fighter text" */
 .titleText {
     font-weight: 20;
-    color: white;
+    color: rgb(254, 254, 254);
     text-align: center;
     font-size: 100px;
     margin: 0px;
@@ -130,7 +139,7 @@ animation-name: myAnimation;
 #mainDisplay {
     display: none;
     width: 100%;
-    height: 60%;
+   
     border: solid rgb(177, 213, 240) 2px;
     background-repeat: no-repeat;
     background-size: 100% 100%; 
@@ -143,8 +152,13 @@ animation-name: myAnimation;
     margin-bottom: 30px;
     padding: 20px;
     font-size: 100%;
+    transition-duration: 4s;
+    transition-property: height;
 
 }
+
+
+
 
 .displayBio, .variationDescriptionText, .variationNameText{
     margin: 0px;
@@ -168,7 +182,7 @@ animation-name: myAnimation;
 
 .variationNameText{
     color: white;  
-    font-size: 2rem;
+    font-size: 4rem;
     color: rgb(249, 124, 124);
    
   
